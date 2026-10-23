@@ -13,6 +13,21 @@
 using namespace std;
 using namespace std::chrono;
 
+const int MAX_RACES = 15;
+
+//vars for 3d array
+const int currSim = 0;
+const int totalSim = 1;
+
+const int readSim = 0;
+const int sortSim = 1;
+const int insertSim = 2;
+const int deleteSim = 3;
+
+const int vectorNum = 0;
+const int listNum = 1;
+const int setNum = 2;
+
 //this will hold final time
 struct TotalTimes{
     long long vectorTime;
@@ -37,21 +52,37 @@ void bigRaceDisplay(TotalTimes &readingTimes, TotalTimes &sortingTimes,
 
 int main() {
     //SUPER CLEAN MAIN
-    vector<string> mainVector;
-    set<string> mainSet;
-    list<string> mainList;
+    //3d array. 2 is for current and total sims, 4 is the operations
+    //and 3 is the containers (vec,list,set)
+    long long results[2][4][3] = {};
 
-    TotalTimes readingTimes;
-    TotalTimes sortingTimes;
-    TotalTimes insertingTimes;
-    TotalTimes deletingTimes;
+    //loop will create a new race with resetted numbers
+    for (int raceCounter = 0; raceCounter < MAX_RACES; raceCounter++){
+        vector<string> mainVector;
+        set<string> mainSet;
+        list<string> mainList;
 
-    bigRaceReading(mainVector, mainList, mainSet, readingTimes);
-    bigRaceSorting(mainVector, mainList, mainSet, sortingTimes);
-    bigRaceInserting(mainVector, mainList, mainSet, insertingTimes);
-    bigRaceDeleting(mainVector, mainList, mainSet, deletingTimes);
+        TotalTimes readingTimes;
+        TotalTimes sortingTimes;
+        TotalTimes insertingTimes;
+        TotalTimes deletingTimes;
 
-    bigRaceDisplay(readingTimes,sortingTimes,insertingTimes,deletingTimes);
+        bigRaceReading(mainVector, mainList, mainSet, readingTimes);
+        bigRaceSorting(mainVector, mainList, mainSet, sortingTimes);
+        bigRaceInserting(mainVector, mainList, mainSet, insertingTimes);
+        bigRaceDeleting(mainVector, mainList, mainSet, deletingTimes);
+
+
+        //3d array insertions here
+        //Reading times, sorting times, inserting, deleting
+        //then add all results before looping again
+
+    }
+
+
+
+
+    //bigRaceDisplay(readingTimes,sortingTimes,insertingTimes,deletingTimes);
 
     return 0;
 }
