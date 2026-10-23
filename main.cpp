@@ -313,7 +313,7 @@ void bigRaceDisplay(long long results[2][4][3]){
          << results[totalSim][deleteSim][listNum] << setw(OUTPUT_RANGE) 
          << results[totalSim][deleteSim][setNum] <<  endl;
 
-    cout << "==================================================" << endl;
+    cout << "=============================================================" << endl;
     cout << "\n\t*** THANK YOU TO OUR SPONSORS ***\n" << endl;
     cout << "\t\tProfessor Dietrich" << endl;
     cout << "\t\tDiablo Valley College" << endl;
