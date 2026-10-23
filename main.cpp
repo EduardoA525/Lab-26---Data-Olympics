@@ -15,6 +15,7 @@ using namespace std;
 using namespace std::chrono;
 
 const int MAX_RACES = 15;
+const int OUTPUT_RANGE = 15;
 
 //vars for 3d array
 const int currSim = 0;
@@ -285,21 +286,31 @@ void bigRaceDeleting(vector<string> &deleteVector, list<string> &deleteList,
 
 void bigRaceDisplay(long long results[2][4][3]){
 
-    cout << "\n\t*** THE GRAND RACE OF THE AVERAGE AGES ***\n" << endl;
-    cout << "RACERS:  Vector\t\tList\t\tSet" << endl;
+    cout << "\n*** THE GRAND RACE OF THE AVERAGE AGES ***\n" << endl;
+    cout << left << setw(OUTPUT_RANGE) << "RACERS: "
+         << right << setw(OUTPUT_RANGE) << "Vector" << setw(OUTPUT_RANGE) 
+         << "List" << setw(OUTPUT_RANGE) << "Set" << endl;
     cout << "==================================================" << endl;
 
-    cout << "READING: " << results[totalSim][readSim][vectorNum] << " \t"
-         << results[totalSim][readSim][listNum] << " \t" << results[totalSim][readSim][setNum] <<  endl;
+    cout << left << setw(OUTPUT_RANGE) << "READING: " 
+         << right << setw(OUTPUT_RANGE) << results[totalSim][readSim][vectorNum] << setw(OUTPUT_RANGE)
+         << results[totalSim][readSim][listNum] << setw(OUTPUT_RANGE) 
+         << results[totalSim][readSim][setNum] <<  endl;
 
-    cout << "SORTING: " << results[totalSim][sortSim][vectorNum] << "\t"
-         << results[totalSim][sortSim][listNum] << "\t" << results[totalSim][sortSim][setNum] <<  endl;
+    cout << left << setw(OUTPUT_RANGE) << "SORTING: " 
+         << right << setw(OUTPUT_RANGE) << results[totalSim][sortSim][vectorNum] << setw(OUTPUT_RANGE)
+         << results[totalSim][sortSim][listNum] << setw(OUTPUT_RANGE) 
+         << results[totalSim][sortSim][setNum] <<  endl;
 
-    cout << "INSERTING: " << results[totalSim][insertSim][vectorNum] << "\t"
-         << results[totalSim][insertSim][listNum] << "\t" << results[totalSim][insertSim][setNum] <<  endl;
+    cout << left << setw(OUTPUT_RANGE) << "INSERTING: " 
+         << right << setw(OUTPUT_RANGE) << results[totalSim][insertSim][vectorNum] << setw(OUTPUT_RANGE)
+         << results[totalSim][insertSim][listNum] << setw(OUTPUT_RANGE) 
+         << results[totalSim][insertSim][setNum] <<  endl;
 
-    cout << "DELETING: " << results[totalSim][deleteSim][vectorNum] << " \t"
-         << results[totalSim][deleteSim][listNum] << " \t" << results[totalSim][deleteSim][setNum] <<  endl;
+    cout << left << setw(OUTPUT_RANGE) << "DELETING: " 
+         << right << setw(OUTPUT_RANGE) << results[totalSim][deleteSim][vectorNum] << setw(OUTPUT_RANGE)
+         << results[totalSim][deleteSim][listNum] << setw(OUTPUT_RANGE) 
+         << results[totalSim][deleteSim][setNum] <<  endl;
 
     cout << "==================================================" << endl;
     cout << "\n\t*** THANK YOU TO OUR SPONSORS ***\n" << endl;
