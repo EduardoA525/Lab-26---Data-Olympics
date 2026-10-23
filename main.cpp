@@ -48,10 +48,6 @@ void bigRaceInserting(vector<string> &insertVector, list<string> &insertList,
 
 void bigRaceDeleting(vector<string> &deleteVector, list<string> &deleteList,
                       set<string> &deleteSet, TotalTimes &times);
-
-//void bigRaceDisplay(TotalTimes &readingTimes, TotalTimes &sortingTimes,
-                    //TotalTimes &insertingTimes, TotalTimes &deletingTimes);
-
 //newer display function
 void bigRaceDisplay(long long results[2][4][3]);
 
