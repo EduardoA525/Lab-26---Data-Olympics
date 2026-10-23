@@ -72,10 +72,38 @@ int main() {
         bigRaceInserting(mainVector, mainList, mainSet, insertingTimes);
         bigRaceDeleting(mainVector, mainList, mainSet, deletingTimes);
 
-
         //3d array insertions here
         //Reading times, sorting times, inserting, deleting
         //then add all results before looping again
+        results[currSim][readSim][vectorNum] = readingTimes.vectorTime;
+        results[currSim][readSim][listNum] = readingTimes.listTime;
+        results[currSim][readSim][setNum] = readingTimes.setTime;
+
+        results[currSim][sortSim][vectorNum] = sortingTimes.vectorTime;
+        results[currSim][sortSim][listNum] = sortingTimes.listTime;
+        results[currSim][sortSim][setNum] = sortingTimes.setTime;
+
+        results[currSim][insertSim][vectorNum] = insertingTimes.vectorTime;
+        results[currSim][insertSim][listNum] = insertingTimes.listTime;
+        results[currSim][insertSim][setNum] = insertingTimes.setTime;
+
+        results[currSim][deleteSim][vectorNum] = deletingTimes.vectorTime;
+        results[currSim][deleteSim][listNum] = deletingTimes.listTime;
+        results[currSim][deleteSim][setNum] = deletingTimes.setTime;
+
+        //Add all current results to total results
+        results[totalSim][readSim][vectorNum] += results[currSim][readSim][vectorNum];
+        results[totalSim][readSim][listNum] += results[currSim][readSim][listNum];
+        results[totalSim][readSim][setNum] += results[currSim][readSim][setNum];
+        
+        results[totalSim][readSim][vectorNum] += results[currSim][readSim][vectorNum];
+        results[totalSim][readSim][listNum] += results[currSim][readSim][listNum];
+        results[totalSim][readSim][setNum] += results[currSim][readSim][setNum];
+        
+        results[totalSim][readSim][vectorNum] += results[currSim][readSim][vectorNum];
+        results[totalSim][readSim][listNum] += results[currSim][readSim][listNum];
+        results[totalSim][readSim][setNum] += results[currSim][readSim][setNum];
+        
 
     }
 
