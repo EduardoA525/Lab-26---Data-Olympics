@@ -32,9 +32,9 @@ const int setNum = 2;
 
 //this will hold final time
 struct TotalTimes{
-    long long vectorTime;
-    long long setTime;
-    long long listTime;
+    long long vectorTime = 0;
+    long long setTime = 0;
+    long long listTime = 0;
 };
 
 void bigRaceReading(vector<string> &readVector, list<string> &readList,
@@ -287,10 +287,11 @@ void bigRaceDeleting(vector<string> &deleteVector, list<string> &deleteList,
 void bigRaceDisplay(long long results[2][4][3]){
 
     cout << "\n*** THE GRAND RACE OF THE AVERAGE AGES ***\n" << endl;
+    cout << "Number of Simulations: " << MAX_RACES << endl;
     cout << left << setw(OUTPUT_RANGE) << "RACERS: "
          << right << setw(OUTPUT_RANGE) << "Vector" << setw(OUTPUT_RANGE) 
          << "List" << setw(OUTPUT_RANGE) << "Set" << endl;
-    cout << "==================================================" << endl;
+    cout << "=============================================================" << endl;
 
     cout << left << setw(OUTPUT_RANGE) << "READING: " 
          << right << setw(OUTPUT_RANGE) << results[totalSim][readSim][vectorNum] << setw(OUTPUT_RANGE)
