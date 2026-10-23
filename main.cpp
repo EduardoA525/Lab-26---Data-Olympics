@@ -9,6 +9,7 @@
 #include <list>
 #include <algorithm>
 #include <fstream>
+#include <iomanip>
 
 using namespace std;
 using namespace std::chrono;
@@ -100,7 +101,6 @@ int main() {
                 results[totalSim][operation][container] += results[currSim][operation][container];
             }
         }
-
     }
 
     //Getting the average
@@ -110,7 +110,7 @@ int main() {
         }
     }
 
-
+    bigRaceDisplay(results);
 
     return 0;
 }
@@ -289,16 +289,17 @@ void bigRaceDisplay(long long results[2][4][3]){
     cout << "RACERS:  Vector\t\tList\t\tSet" << endl;
     cout << "==================================================" << endl;
 
-    cout << "READING: " << results[totalSim][readSim][vectorNum] <<  endl;
+    cout << "READING: " << results[totalSim][readSim][vectorNum] << " \t"
+         << results[totalSim][readSim][listNum] << " \t" << results[totalSim][readSim][setNum] <<  endl;
 
-    cout << "SORTING: " << sortingTimes.vectorTime << " ns\t"
-         << sortingTimes.listTime << " ns\t" << sortingTimes.setTime << " ns" << endl;
+    cout << "SORTING: " << results[totalSim][sortSim][vectorNum] << "\t"
+         << results[totalSim][sortSim][listNum] << "\t" << results[totalSim][sortSim][setNum] <<  endl;
 
-    cout << "INSERTING: " << insertingTimes.vectorTime << " ns\t"
-         << insertingTimes.listTime << " ns\t" << insertingTimes.setTime << " ns" << endl;
+    cout << "INSERTING: " << results[totalSim][insertSim][vectorNum] << "\t"
+         << results[totalSim][insertSim][listNum] << "\t" << results[totalSim][insertSim][setNum] <<  endl;
 
-    cout << "DELETING: " << deletingTimes.vectorTime << " ns\t"
-         << deletingTimes.listTime << " ns\t" << deletingTimes.setTime << " ns" << endl;
+    cout << "DELETING: " << results[totalSim][deleteSim][vectorNum] << " \t"
+         << results[totalSim][deleteSim][listNum] << " \t" << results[totalSim][deleteSim][setNum] <<  endl;
 
     cout << "==================================================" << endl;
     cout << "\n\t*** THANK YOU TO OUR SPONSORS ***\n" << endl;
