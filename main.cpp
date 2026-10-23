@@ -47,8 +47,11 @@ void bigRaceInserting(vector<string> &insertVector, list<string> &insertList,
 void bigRaceDeleting(vector<string> &deleteVector, list<string> &deleteList,
                       set<string> &deleteSet, TotalTimes &times);
 
-void bigRaceDisplay(TotalTimes &readingTimes, TotalTimes &sortingTimes,
-                    TotalTimes &insertingTimes, TotalTimes &deletingTimes);
+//void bigRaceDisplay(TotalTimes &readingTimes, TotalTimes &sortingTimes,
+                    //TotalTimes &insertingTimes, TotalTimes &deletingTimes);
+
+//newer display function
+void bigRaceDisplay(long long results[2][4][3]);
 
 int main() {
     //SUPER CLEAN MAIN
@@ -91,26 +94,23 @@ int main() {
         results[currSim][deleteSim][listNum] = deletingTimes.listTime;
         results[currSim][deleteSim][setNum] = deletingTimes.setTime;
 
-        //Add all current results to total results
-        results[totalSim][readSim][vectorNum] += results[currSim][readSim][vectorNum];
-        results[totalSim][readSim][listNum] += results[currSim][readSim][listNum];
-        results[totalSim][readSim][setNum] += results[currSim][readSim][setNum];
-        
-        results[totalSim][readSim][vectorNum] += results[currSim][readSim][vectorNum];
-        results[totalSim][readSim][listNum] += results[currSim][readSim][listNum];
-        results[totalSim][readSim][setNum] += results[currSim][readSim][setNum];
-        
-        results[totalSim][readSim][vectorNum] += results[currSim][readSim][vectorNum];
-        results[totalSim][readSim][listNum] += results[currSim][readSim][listNum];
-        results[totalSim][readSim][setNum] += results[currSim][readSim][setNum];
-        
+        //Add all current results to total results in a loop
+        for (int operation = 0; operation < 4; operation++){
+            for (int container = 0; container < 3; container++){
+                results[totalSim][operation][container] += results[currSim][operation][container];
+            }
+        }
 
     }
 
+    //Getting the average
+    for (int operation = 0; operation < 4; operation++){
+        for (int container = 0; container < 3; container++){
+            results[totalSim][operation][container] /= MAX_RACES;
+        }
+    }
 
 
-
-    //bigRaceDisplay(readingTimes,sortingTimes,insertingTimes,deletingTimes);
 
     return 0;
 }
@@ -283,15 +283,13 @@ void bigRaceDeleting(vector<string> &deleteVector, list<string> &deleteList,
     times.setTime = duration.count();
 }
 
-void bigRaceDisplay(TotalTimes &readingTimes, TotalTimes &sortingTimes,
-                    TotalTimes &insertingTimes, TotalTimes &deletingTimes){
+void bigRaceDisplay(long long results[2][4][3]){
 
-    cout << "\n\t*** THE GRAND RACE OF THE AGES ***\n" << endl;
+    cout << "\n\t*** THE GRAND RACE OF THE AVERAGE AGES ***\n" << endl;
     cout << "RACERS:  Vector\t\tList\t\tSet" << endl;
     cout << "==================================================" << endl;
 
-    cout << "READING: " << readingTimes.vectorTime << " ns\t"
-         << readingTimes.listTime << " ns\t" << readingTimes.setTime << " ns"<< endl;
+    cout << "READING: " << results[totalSim][readSim][vectorNum] <<  endl;
 
     cout << "SORTING: " << sortingTimes.vectorTime << " ns\t"
          << sortingTimes.listTime << " ns\t" << sortingTimes.setTime << " ns" << endl;
